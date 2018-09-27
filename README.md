@@ -116,7 +116,7 @@ Your script should perform the following actions:
 * If the given files do not exist, an appropriate error message should be printed and the script should end without doing anything.
 
 You should be able to run your script as such:	./bscript.sh <filename1> <filename2> <filename3> ...
-    * :bulb: This means you will need to use the [`chmod`](https://ss64.com/bash/chmod.html) command to mark it as executable
+* :bulb: This means you will need to use the [`chmod`](https://ss64.com/bash/chmod.html) command to mark it as executable
 
 Lastly, add a target, `bscript`, to your makefile that runs your script with the key files generated in Part B. The contents of the key files should be appended to the `bomb_defused.log` file.
 
