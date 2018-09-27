@@ -1,35 +1,34 @@
+#include "badmem.h"
 #include <stdlib.h>
 #include <stdio.h>
 #pragma GCC diagnostic ignored "-Wreturn-local-addr"
 #pragma GCC diagnostic ignored "-Wfree-nonheap-object"
 
 void f1(){
-  int *a = malloc(sizeof(int) * 3);
-  for (int i = 0; i < sizeof(a); i++){
-    a[i] = i;
-  }
+    int *a = malloc(sizeof(int) * 3);
+    for (int i = 0; i < sizeof(int); i++){
+        a[i] = i;
+    }
+}
+void f2(){
+    int a[10];
+    for (int i = 0; i < sizeof(a); i++){
+        a[i] = i;
+    }
+    for (int i = 10; i >= sizeof(a); i++){
+        printf("%d ", a[i]);
+    }
+    printf("\n");
 }
 
-int * f2(){
-  int a[10];
-  for (int i = 0; i < sizeof(a); i++){
-    a[i] = i;
-  }
-  for (int i = 10; i >= sizeof(a); i++){
-    printf("%d ", a[i]);
-  }
-  printf("\n");
-  return a;
+void f3(){
+    char * cptr = calloc(10, sizeof(char));
+    cptr[10] = 'a';
+    char * junk = cptr[0];
+    free(junk);
 }
 
-int f3(){
-  char * cptr = calloc(10, sizeof(char));
-  cptr[10] = 'a';
-  char * junk = cptr[0];
-  free(junk);
-}
-
-/**** DO NOT ALTER anything past here ****/
+/**** DO NOT ALTER anything below here ****/
 
 void initialize_bomb();
 void phase_1();
@@ -59,7 +58,7 @@ int main(){
     printf("Phase 1 defused. How about the next one?\n");
 
     /* The second phase is harder. No one will ever figure out
-         how to defuse this... */
+    how to defuse this... */
     phase_2();
     printf("That's number 2. Keep going!\n");
 
