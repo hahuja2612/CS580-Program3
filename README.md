@@ -26,24 +26,28 @@
 
 ### Grading Rubric
 
-**_TOTAL: 25 points_**
+**_TOTAL: 30 points_**
 
-* **Part A: (10 points)**
+* **Part A: (5 points)**
     * Makefile has target memcheck that runs valgrind on program3 executable (2 points)
-    * Passes Valgrind tests without memory leak or error (8 points)
-* **Part B: (10 points)**
-    * contains bomb_defused.txt with unique identifying key showing the bomb was defused (2 points)
-    * Uses separate compilation, compiling defuseMe.o and bomb.o to object files, then links all 3 into an executable (2 points)
-* **Part C: (5 points)**
-    * bash script takes a single command line argument
-    * checks if argument is a file
-    * create TRASH directory if necessary
-* **Part D: (6 points)**
-    * Makefile has all target that runs the defuseTheBomb, checkmem, and clean targets   (1 point)
-    * Makefile has target that compiles the defuseTheBomb executable (1 point)
-    * Makefile has target for checkmem that compiles course to an executable and launches valgrind (2 points)
-    * Makefile has target clean that uses the trash.sh script to clean all non-essential files (object files other than hidden.o and executables)   (2 points)
-* **Part D: 5 points**
+    * Passes Valgrind tests without memory leak or error (3 points)
+* **Part B: (6 points)**
+    * contains bomb_defused.txt with unique identifying key showing the bomb was defused (1 point)
+    * contains phase key files for each phase (3 points)
+    * Uses separate compilation, compiling program3.o and bomb.o to object files, then links all 3, including hidden.o, into an executable (2 points)
+* **Part C: (9 points)**
+    * bash script takes a list of command line arguments (1 point)
+    * checks if all files exist (2 points)
+    * creates keys directory if necessary (1 point)
+    * appends contents of files to the last file in the list (3 points)
+    * moves key files into key directory (2 points)
+* **Part D: (8 points)**
+    * Makefile has `all` dependencies that runs the `program3`, `clean`, and `submit` targets   (1 point)
+    * Makefile has target that compiles the program3 executable using separate compilation (3 points)
+    * Makefile has target for checkmem that compiles source to an executable and launches valgrind (1 points)
+    * Makefile has target clean that removes object files (other than hidden.o) and executables, moves key files into the top level directory and dletes the key folder (2 points)
+    * Makefile has a submit target that commits and pushes code to github (1 points)
+* **Part D: (2 points)**
     * Follows requested program structure and submission format
 
 ### Guidelines
