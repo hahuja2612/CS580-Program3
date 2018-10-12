@@ -1,21 +1,22 @@
-#include "badmem.h"
+//#include "badmem.h"
 #include <stdlib.h>
 #include <stdio.h>
 #pragma GCC diagnostic ignored "-Wreturn-local-addr"
 #pragma GCC diagnostic ignored "-Wfree-nonheap-object"
 
 void f1(){
-    int *a = malloc(sizeof(int) * 3);
-    for (int i = 0; i < sizeof(int); i++){
+    int *a = (int*)malloc(sizeof(int) * 3);
+    for (int i = 0; i < 3; i++){
         a[i] = i;
     }
-}
+	
+	}
 void f2(){
     int a[10];
-    for (int i = 0; i < sizeof(a); i++){
+    for (int i = 0; i < 9; i++){
         a[i] = i;
     }
-    for (int i = 10; i >= sizeof(a); i++){
+    for (int i = 0; i <9; i++){
         printf("%d ", a[i]);
     }
     printf("\n");
@@ -23,7 +24,7 @@ void f2(){
 
 void f3(){
     char * cptr = calloc(10, sizeof(char));
-    cptr[10] = 'a';
+    cptr[9] = 'a';
     char * junk = cptr[0];
     free(junk);
 }
