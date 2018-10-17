@@ -25,7 +25,7 @@ void f2(){
 void f3(){
     char * cptr = calloc(10, sizeof(char));
     cptr[9] = 'a';
-    char * junk = cptr[0];
+    char * junk = cptr;
     free(junk);
 }
 
