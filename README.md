@@ -3,13 +3,13 @@
 ### PROGRAM 2 README FILE
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
-- What parts of the program you were not able to complete
+- none
 
 ## REFERENCES:
-- List any outside resources used
+- none
 
 ## MISCELLANEOUS COMMENTS:
-- Anything you would like the grader to know
+- none
 
 # Assignment Description
 ## Program 3 - Unix System Tools
